@@ -17,7 +17,10 @@ module SpecialDelivery
     end
 
     def delivery
-      @delivery ||= Delivery.find_by_message_id!(params.fetch('message-id'))
+      new_params = HashClod.new
+      params.map { |k, v| new_params[k] = v }
+      message_id = new_params['Message-Id']
+      @delivery ||= Delivery.find_by_message_id!(message_id)
     end
   end
 end

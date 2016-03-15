@@ -21,7 +21,7 @@ module SpecialDelivery
         mail.message_id = SecureRandom.uuid
       end
 
-      "<#{mail.message_id}>"
+      "#{mail.message_id}"
     end
   end
 end
